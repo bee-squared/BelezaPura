@@ -1,30 +1,40 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Button,
+} from 'react-native';
+
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const ProductItem = (props) => {
   return (
-    <View style={styles.product}>
-      <View style={styles.imageContainer}>
-        <Image style={styles.image} source={{ uri: props.image }} />
+    <TouchableOpacity onPress={props.onViewDetail}>
+      <View style={styles.product}>
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={{ uri: props.image }} />
+        </View>
+        <View style={styles.details}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.price}>${props.price.toFixed(2)}</Text>
+        </View>
+        <View style={styles.actions}>
+          <Button
+            color={Colors.primary}
+            title='View Details'
+            onPress={props.onViewDetail}
+          />
+          <Button
+            color={Colors.primary}
+            title='To Cart'
+            onPress={props.onAddToCart}
+          />
+        </View>
       </View>
-      <View style={styles.details}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.price}>${props.price.toFixed(2)}</Text>
-      </View>
-      <View style={styles.actions}>
-        <Button
-          color={Colors.primary}
-          title='View Details'
-          onPress={props.onViewDetail}
-        />
-        <Button
-          color={Colors.primary}
-          title='To Cart'
-          onPress={props.onAddToCart}
-        />
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -45,7 +55,7 @@ const styles = StyleSheet.create({
     height: '60%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   image: {
     width: '100%',
