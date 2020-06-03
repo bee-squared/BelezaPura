@@ -10,7 +10,7 @@ import {
   Button,
 } from 'react-native';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import Colors from '../../constants/Colors';
 
 const ProductItem = (props) => {
   let TouchableCmp = TouchableOpacity;
