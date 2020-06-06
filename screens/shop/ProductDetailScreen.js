@@ -23,6 +23,7 @@ const ProductDetailScreen = (props) => {
         <Button color={Colors.primary} title='Add to Cart' onPress={() => {}} />
       </View>
       <Text style={styles.price}>${selectedProduct.price.toFixed(2)}</Text>
+      <Text style={styles.descriptionTitle}>Description</Text>
       <Text style={styles.description}>{selectedProduct.description}</Text>
     </ScrollView>
   );
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
   },
   actions: {
     marginVertical: 10,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   price: {
     fontSize: 20,
@@ -49,9 +50,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginVertical: 20,
   },
+  descriptionTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    textAlign: 'left',
+    marginHorizontal: 20,
+  },
   description: {
     fontSize: 14,
-    textAlign: 'center',
+    textAlign: 'left',
+    marginHorizontal: 20,
   },
 });
 
