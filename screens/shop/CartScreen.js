@@ -6,12 +6,11 @@ import Colors from '../../constants/Colors';
 
 const CartScreen = (props) => {
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
-  console.log(cartTotalAmount);
   return (
     <View style={styles.screen}>
       <View style={styles.summary}>
         <Text style={styles.summaryText}>
-          Total: <Text style={styles.amount}>${19.99}</Text>
+          Total: <Text style={styles.amount}>${cartTotalAmount}</Text>
           <Button title='Order Now' />
         </Text>
       </View>
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   amount: {
-    color: Colors.accent,
+    color: Colors.primary,
   },
 });
 
