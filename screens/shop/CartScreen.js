@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet, Button } from 'react-native';
+import { useSelector } from 'react-redux';
 
 const CartScreen = (props) => {
+  const cartTotalAmount = useSelector(state => state.cart.totalAmount)
+  console.log(cartTotalAmount)
   return (
     <View>
       <View>
