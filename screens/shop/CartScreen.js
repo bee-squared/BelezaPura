@@ -6,6 +6,19 @@ import Colors from '../../constants/Colors';
 
 const CartScreen = (props) => {
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
+  const cartItems = useSelector({state => {
+    const transformedCartItems =[];
+    for (const key in state.cart.items) {
+      transformedCartItems.push([
+        productId: key,
+        productTitle: state.cart.items[key].productTitle,
+        productPrice: state.cart.items[key].productPrice,
+        quantity: state.cart.items[key].quantity,
+        sum: state.cart.items[key].sum
+      ])
+    }
+    return transformedCartItems;
+  }})
   return (
     <View style={styles.screen}>
       <View style={styles.summary}>
@@ -13,7 +26,7 @@ const CartScreen = (props) => {
           Total:
           <Text style={styles.amount}> ${cartTotalAmount.toFixed(2)}</Text>
         </Text>
-          <Button title='Order Now'></Button>
+          <Button color={Colors.accent} title='Order Now' disabled={cartItems.length === 0}/>
       </View>
       <Text>Cart Items</Text>
     </View>
