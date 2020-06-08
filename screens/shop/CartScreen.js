@@ -10,9 +10,10 @@ const CartScreen = (props) => {
     <View style={styles.screen}>
       <View style={styles.summary}>
         <Text style={styles.summaryText}>
-          Total: <Text style={styles.amount}>${cartTotalAmount}</Text>
-          <Button title='Order Now' />
+          Total:
+          <Text style={styles.amount}> ${cartTotalAmount.toFixed(2)}</Text>
         </Text>
+          <Button title='Order Now'></Button>
       </View>
       <Text>Cart Items</Text>
     </View>
