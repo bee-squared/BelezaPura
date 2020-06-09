@@ -2,20 +2,22 @@ import React from 'react';
 import { View, Text, FlatList, StyleSheet, Button } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Fontisto } from '@expo/vector-icons';
+
 import Colors from '../../constants/Colors';
+import CartItem from '../../components/shop/CartItem';
 
 const CartScreen = (props) => {
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
   const cartItems = useSelector((state) => {
-    const transformedCartItems =[];
+    const transformedCartItems = [];
     for (let key in state.cart.items) {
       transformedCartItems.push({
         productId: key,
         productTitle: state.cart.items[key].productTitle,
         productPrice: state.cart.items[key].productPrice,
         quantity: state.cart.items[key].quantity,
-        sum: state.cart.items[key].sum
-      })
+        sum: state.cart.items[key].sum,
+      });
     }
     return transformedCartItems;
   });
@@ -32,7 +34,18 @@ const CartScreen = (props) => {
           disabled={cartItems.length === 0}
         />
       </View>
-      <Text>Cart Items</Text>
+      <FlatList
+        data={cartItems}
+        keyExtractor={(item) => item.productId}
+        renderItem={(itemData) => (
+          <CartItem
+            quantity={itemData.item.quantity}
+            title={itemData.item.productTitle}
+            amount={itemData.item.sum}
+            onRemove={() => {}}
+          />
+        )}
+      />
     </View>
   );
 };
