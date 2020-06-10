@@ -20,7 +20,7 @@ const CartScreen = (props) => {
         sum: state.cart.items[key].sum,
       });
     }
-    return transformedCartItems;
+    return transformedCartItems.sort((a,b) => {return a.sum < b.sum});
   });
 
   const dispatch = useDispatch();
