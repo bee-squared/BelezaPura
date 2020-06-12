@@ -32,14 +32,14 @@ const ProductsOverviewScreen = (props) => {
           title={itemData.item.title}
           price={itemData.item.price}
           onSelect={() => {
-            selectItemHandler(itemData.item.id, itemData.item.title)
+            selectItemHandler(itemData.item.id, itemData.item.title);
           }}
         >
           <Button
             color={Colors.primary}
             title='View Details'
             onPress={() => {
-              selectItemHandler(itemData.item.id, itemData.item.title)
+              selectItemHandler(itemData.item.id, itemData.item.title);
             }}
           />
           <Button
