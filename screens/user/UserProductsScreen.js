@@ -23,4 +23,10 @@ const UserProductsScreen = (props) => {
   );
 };
 
+UserProductsScreen.navigationOptions = (navData) => {
+  return {
+    headerTitle: 'Your Products',
+  }
+}
+
 export default UserProductsScreen;
