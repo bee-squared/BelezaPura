@@ -21,9 +21,10 @@ const OrderItem = (props) => {
         }}
       />
       {showDetails && (
-        <View>
+        <View style={styles.detailItems}>
           {props.items.map((cartItem) => (
             <CartItem
+              key={cartItem.productId}
               quantity={cartItem.quantity}
               amount={cartItem.sum}
               title={cartItem.productTitle}
@@ -64,6 +65,9 @@ const styles = StyleSheet.create({
     fontFamily: 'open-sans',
     color: '#888',
   },
+  detailItems: {
+    width: '100%',
+  }
 });
 
 export default OrderItem;
