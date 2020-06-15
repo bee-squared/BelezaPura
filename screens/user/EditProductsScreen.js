@@ -1,28 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, ScrollView, Text, TextInput, StyleSheet } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../../components/UI/HeaderButton';
 
 const EditProductScreen = (props) => {
+  const [title, setTitle] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState('');
+
+  const prodId = props.navigation.getParam('productId');
+
+  
+
   return (
     <ScrollView>
       <View style={styles.form}>
         <View style={styles.formControl}>
           <Text style={styles.label}>Title</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={title}
+            onChangeText={(text) => setTitle(text)}
+          />
         </View>
         <View style={styles.formControl}>
           <Text style={styles.label}>Image URL</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={imageUrl}
+            onChangeText={(text) => setImageUrl(text)}
+          />
         </View>
         <View style={styles.formControl}>
           <Text style={styles.label}>Price</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={price}
+            onChangeText={(text) => setPrice(text)}
+          />
         </View>
         <View style={styles.formControl}>
           <Text style={styles.label}>Description</Text>
-          <TextInput style={styles.input} />
+          <TextInput
+            style={styles.input}
+            value={description}
+            onChangeText={(text) => setDescription(text)}
+          />
         </View>
       </View>
     </ScrollView>
@@ -34,14 +59,14 @@ EditProductScreen.navigationOptions = (navData) => {
     headerTitle: navData.navigation.getParam('productId')
       ? 'Edit Product'
       : 'Add Product',
-    headerRight: (
+    headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title='Save'
-          iconName={Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'}
-          onPress={() => {
-            
-          }}
+          iconName={
+            Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'
+          }
+          onPress={() => {}}
         />
       </HeaderButtons>
     ),
