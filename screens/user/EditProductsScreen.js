@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
-import { View, ScrollView, Text, TextInput, StyleSheet } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Text,
+  TextInput,
+  StyleSheet,
+  Platform,
+} from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { useSelector } from 'react-redux';
 
 import HeaderButton from '../../components/UI/HeaderButton';
 
 const EditProductScreen = (props) => {
-  const [title, setTitle] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
-
   const prodId = props.navigation.getParam('productId');
 
-  
+  const editedProduct = useSelector((state) =>
+    state.products.userProducts.find((prod) => prod.id === prodId)
+  );
+
+  const [title, setTitle] = useState(editedProduct ? editedProduct.title : '');
+  const [imageUrl, setImageUrl] = useState(
+    editedProduct ? editedProduct.imageUrl : ''
+  );
+  const [price, setPrice] = useState('');
+  const [description, setDescription] = useState(
+    editedProduct ? editedProduct.description : ''
+  );
 
   return (
     <ScrollView>
@@ -33,14 +47,16 @@ const EditProductScreen = (props) => {
             onChangeText={(text) => setImageUrl(text)}
           />
         </View>
-        <View style={styles.formControl}>
-          <Text style={styles.label}>Price</Text>
-          <TextInput
-            style={styles.input}
-            value={price}
-            onChangeText={(text) => setPrice(text)}
-          />
-        </View>
+        {editedProduct ? null : (
+          <View style={styles.formControl}>
+            <Text style={styles.label}>Price</Text>
+            <TextInput
+              style={styles.input}
+              value={price}
+              onChangeText={(text) => setPrice(text)}
+            />
+          </View>
+        )}
         <View style={styles.formControl}>
           <Text style={styles.label}>Description</Text>
           <TextInput
