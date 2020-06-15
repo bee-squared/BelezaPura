@@ -58,10 +58,10 @@ UserProductsScreen.navigationOptions = (navData) => {
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
-          title='cart'
-          iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
+          title='Add'
+          iconName={Platform.OS === 'android' ? 'md-create' : 'ios-create'}
           onPress={() => {
-            navData.navigation.navigate('Cart');
+            navData.navigation.navigate('EditProduct');
           }}
         />
       </HeaderButtons>
