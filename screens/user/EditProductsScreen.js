@@ -5,7 +5,7 @@ import {
   Text,
   TextInput,
   StyleSheet,
-  Platform,
+  Platform
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
