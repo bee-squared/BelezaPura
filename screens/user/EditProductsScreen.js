@@ -33,7 +33,6 @@ const EditProductScreen = (props) => {
 
   const submitHandler = useCallback(() => {
     if (editedProduct) {
-      console.log(editedProduct);
       dispatch(productActions.updateProduct(prodId, title, description, imageUrl))
     } else {
       dispatch(productActions.createProduct(title, description, imageUrl, +price))

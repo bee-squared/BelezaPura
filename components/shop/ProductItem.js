@@ -41,7 +41,7 @@ const ProductItem = (props) => {
 
 const styles = StyleSheet.create({
   product: {
-    height: 300,
+    height: 400,
     margin: 20,
   },
   // for android to allow the product to retain border radius
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: '100%',
-    height: '60%',
+    height: '70%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     overflow: 'hidden',
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   details: {
     alignItems: 'center',
-    height: '17%',
+    height: '12%',
     padding: 10,
   },
   title: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: '23%',
+    height: '18%',
     paddingHorizontal: 20,
   },
 });

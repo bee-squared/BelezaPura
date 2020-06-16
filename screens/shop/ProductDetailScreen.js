@@ -43,7 +43,7 @@ ProductDetailScreen.navigationOptions = (navData) => {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 300,
+    height: 500,
   },
   actions: {
     marginVertical: 10,
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'left',
     marginHorizontal: 20,
+    marginBottom: 40
   },
 });
 
